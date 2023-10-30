@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav .add-list 
+{
+    margin-right: 10px;
+}
+tbody tr th
+{
+    font-weight: normal;
+}
+ul {
+    margin-top: 10px;
+}
+ul li {
+    list-style: none;
+}
+.btn-create {
+    border-radius: 0px;
+    width: 180px;
+    margin-top: 30px;
+}
+.text-error {
+    color: #E32D2B;
+}
+.btn-date {
+    padding: 1px 5px;
+    border: 1px solid black;
+}

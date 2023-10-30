@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Stworz
+{% endblock %}
+
+{% block main %}
+{% if not correct_message %}
+<form class="row" action="/create" method="POST">
+    <div class="col-md-4">
+        <h4>Wysłane z</h4>
+        <hr>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sentFrom" id="sentFromShop" value="2" required>
+            <label class="form-check-label" for="sentFrom">Sklep</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sentFrom" id="sentFromEmpu" value="1" required>
+            <label class="form-check-label" for="sentFromEmpu">Empu</label>
+        </div>
+
+        <br><br><br>
+        <h4>Wysłane do</h4>
+        <hr>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sentTo" id="inlineRadio3" value="2" required>
+            <label class="form-check-label" for="inlineRadio3">Sklep</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sentTo" id="inlineRadio4" value="1" required>
+            <label class="form-check-label" for="inlineRadio4">Empu</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sentTo" id="inlineRadio5" value="3" required>
+            <label class="form-check-label" for="inlineRadio5">Nolimit</label>
+        </div>
+
+        <br><br><br>
+    </div>
+
+    <div class="col-md-4">
+        <h4>Do uzupełnienia</h4>
+        <hr>
+        <div class="mb-3">
+            <input type="text" class="form-control mb-3" name="reg_num" id="reg_num" placeholder="Numer rejestracyjny"
+                required>
+            <input type="text" class="form-control" name="plomb_num" id="plomb_num" placeholder="Numer plomby" required>
+        </div>
+
+
+    </div>
+    <div class="col-md-4">
+        <h4>Zamówienia</h4>
+        <hr>
+
+        <div class="mb-3">
+            <textarea class="form-control" rows="8" name="isellList" placeholder="Numery isell"></textarea>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-create">Zapisz</button>
+    </div>
+</form>
+{% else %}
+<div class="alert alert-success text-center" role="alert">
+    Pomyślnie zapisano.
+    <a href="/download_excel" class="btn btn-primary">Pobierz dokument</a>
+    <a href="/create" class="btn btn-primary">Stwórz nowy</a>
+</div>
+{% endif %}
+{% endblock %}

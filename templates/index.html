@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Historia
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Historia przerzutów</h4>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <form action="/" method="post">
+                <input type="date" id="currentDate" name="selectedDate", value="{{ date }}">
+                <button class="btn-date" type="submit">Wyświetl</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+{% if rows %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Numer</th>
+            <th scope="col">Data</th>
+            <th scope="col">Godzina</th>
+            <th scope="col">Rejestracja</th>
+            <th scope="col">Plomba</th>
+            <th scope="col">Wysłane z</th>
+            <th scope="col">Wysłane do</th>
+            <th scope="col">Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows|reverse %}
+        <tr>
+            <th>{{ row["id"] }}</th>
+            <th>{{ row["data"] }}</th>
+            <th>{{ row["time"] }}</th>
+            <th>{{ row["reg_num"] }}</th>
+            <th>{{ row["plomb_num"] }}</th>
+            <th>{{ area[row["sent_from"]][0] }}</th>
+            <th>{{ area[row["sent_to"]][0] }}</th>
+            <th>{{ row["user_username"] }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="text-center pt-5">
+    <p>Brak historii.</p>
+</div>
+{% endif %}
+
+{% endblock %}

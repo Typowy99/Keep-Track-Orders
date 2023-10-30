@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block main %}
+{% if rows %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Isell</th>
+            <th scope="col">Data wysłania</th>
+            <th scope="col">Kierunek</th>
+            <th scope="col">Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            <th>{{ row["orders_num_isell"] }}</th>
+            <th>{{ row["metastasis_data"] }}</th>
+            <th>{{ area[row["metastasis_sent_from"]][0] }} -> {{ area[row["metastasis_sent_to"]][0] }}</th>
+            <th>{{ row["user_username"] }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="text-center">
+    {{ error }}
+</div>
+
+{% endif %}
+{% endblock %}
