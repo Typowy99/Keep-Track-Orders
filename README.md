@@ -1,6 +1,3 @@
-Final Project for CS50
-This application was developed as a final project for the CS50 course, an introduction to computer science.
-
 # Order Tracking Flask Application
 #### Video Demo:  https://youtu.be/kPdujwwxy-w
 #### Description: This Flask web application, developed as a final project for the CS50 course, is designed for tracking and managing orders. It offers functionalities like viewing orders by date, searching for orders using their unique number, creating new orders, user authentication, and downloading Excel files for order details.
